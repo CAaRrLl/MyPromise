@@ -96,7 +96,7 @@ Promise.prototype.catch = function(onRejected) {
     return this.then(null, onRejected);
 }
 
-Promise.all = function(array) {
+Promise.all = function(promises) {
 }
 
 module.exports = Promise;

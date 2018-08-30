@@ -46,7 +46,7 @@ readFile('./inde.js')
 .then(data => console.log(data))
 .catch(err => console.log(err));
 
-//example3 获取的数据会被保存起来，一段时间过后通过then仍能取得
+//example3
 var getNumber = new _Promise_((resolve, reject) => {
     setTimeout(() => {
         resolve(100);
@@ -55,6 +55,8 @@ var getNumber = new _Promise_((resolve, reject) => {
 getNumber
 .then(num => console.log(num))
 .catch(err => console.log('err',err));
+getNumber
+.then(num => console.log(num));
 
 //example 值的穿透
 var num = 100;
