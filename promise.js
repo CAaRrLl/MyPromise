@@ -97,6 +97,22 @@ Promise.prototype.catch = function(onRejected) {
 }
 
 Promise.all = function(promises) {
+    return new Promise(function(resolve, reject) {
+        var data = [];
+        var length = promises.length;
+        var count = 0;
+        promises.forEach(function(promise, index) {
+            promise.then(function(value) {
+                data[index] = value;
+                count++;
+                if(count === length) {
+                    resolve(data);
+                }
+            }).catch(function(error) {
+                reject(error);
+            });
+        });
+    });
 }
 
 module.exports = Promise;

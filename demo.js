@@ -68,3 +68,12 @@ new _Promise_((resolve) => resolve(--num))
 .then()
 .then(num => --num)
 .then(num => console.log(num));
+
+//Promise.all
+var p1 = new _Promise_(resolve => setTimeout(() => resolve(1000), 1000));
+var p2 = new _Promise_(resolve => setTimeout(() => resolve(500), 500));
+var p3 = new _Promise_(resolve => setTimeout(() => resolve(3000), 3000));
+var p4 = new _Promise_(resolve => setTimeout(() => resolve(1200), 1200));
+_Promise_.all([p1, p2, p3, p4])
+.then(data => console.log('data', data))
+.catch(error => console.log(error));
